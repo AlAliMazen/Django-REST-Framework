@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # for login and out we only need the following path
     path('api-auth/', include('rest_framework.urls')),
-    path('', include('profiles.urls'))
+    path('', include('profiles.urls')),
+    path('', include('post.urls')),
 ]
