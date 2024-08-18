@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from category.models import Category
+
 
 # Create your models here.
 
@@ -19,6 +21,7 @@ class Post(models.Model):
     ]
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    Category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, related_name='Segment')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=255)
@@ -30,6 +33,8 @@ class Post(models.Model):
     image_filter = models.CharField(
         max_length=32, choices=image_filter_choices, default='normal'
     )
+
+    
     class Meta:
         ordering = ['-created_at']
 

@@ -1,12 +1,11 @@
 from rest_framework import serializers
 from post.models import Post
-
-
 class PostSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
+    category_title = serializers.ReadOnlyField(source='category.title' )
 
     # write a fucntion to validate the image size, width and height
     # common convension is to call validate_[name_of_field]
@@ -32,7 +31,7 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = [
-            'id', 'owner', 'is_owner', 'profile_id',
+            'id', 'owner', 'is_owner', 'profile_id','category_title',
             'profile_image', 'created_at', 'updated_at',
-            'title', 'content', 'image', 'image_filter'
+            'title', 'content', 'image','image_filter','Category'
         ]

@@ -2,6 +2,7 @@ from django.db import models
 # we have to listen to events like when a user profile is created and run some code
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
+from category.models import Category
 
 # Create your models here.
 # define the model of the user

@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from .models import Post
 from .serializers import PostSerializer
 
+
 # Create your views here.
 class PostList(APIView):
     """
