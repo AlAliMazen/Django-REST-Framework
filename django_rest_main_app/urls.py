@@ -20,6 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # for login and out we only need the following path
     path('api-auth/', include('rest_framework.urls')),
+    path('summernote/', include('django_summernote.urls')),
     path('', include('profiles.urls')),
+    path('', include('category.urls')),
     path('', include('post.urls')),
 ]
